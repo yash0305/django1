@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customer</title>
+</head>
+<body>
+
+<div>
+    <h1>detail</h1>
+    <table border="2">
+        <tr>
+
+            <th>Product</th>
+            <th>Category</th>
+            <th>Date Ordered</th>
+             <th>Status</th>
+            <th>Update</th>
+            <th>Remove</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.product }}</td>
+            <td>{{ order.product.category }}</td>
+            <td>{{ order.date_created }}</td>
+            <td>{{ order.status }}</td>
+            <td><a href="">Update</a> </td>
+            <td><a href="">Remove</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

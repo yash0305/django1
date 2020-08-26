@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css/' %}">
+</head>
+
+<body>
+
+<h1>yash</h1>  <a href="{% url 'products' %}">products</a>
+<br>
+<br>
+<a href="{% url 'createOrder' %}">createOrder</a>
+<br>
+<br>
+
+<br>
+<br>
+Total_orders :{{ total_orders }}<br>
+
+Delivered: {{ delivered }}<br>
+
+Pending: {{ pending }}<br>
+<br>
+<br>
+<div>
+    <h1>CUSTOMERS</h1>
+    <table border="2">
+        <tr>
+            <th>Customer</th>
+            <th>Phone</th>
+
+        </tr>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.name}}</td>
+                <td>{{ customer.phone}}</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <h1>order</h1>
+    <table border="2">
+        <tr>
+            <th>Product</th>
+            <th>date ordered</th>
+            <th>status</th>
+            <th>update</th>
+            <th>remove</th>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <td>{{order.product}}</td>
+                <td>{{order.date_created}}</td>
+                <td>{{order.status}}</td>
+                <td><a href="">update</a> </td>
+                <td><a href="">Delete</a> </td>
+            </tr>
+
+
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
